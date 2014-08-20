@@ -67,7 +67,7 @@
 			}
 
 			//global $tldTree;
-			require_once("effectiveTLDs.inc.php");
+			include("effectiveTLDs.inc.php");
 
 			$signingDomainParts = split('\.', $signingDomain);
 
