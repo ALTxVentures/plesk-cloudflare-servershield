@@ -34,7 +34,7 @@
  *
  * $signingDomain has to be provided lowercase (!)
  */
-	require_once("effectiveTLDs.inc.php");
+	//require_once("effectiveTLDs.inc.php");
 
 	class Modules_servershield_regDomain {
 		function extractSubdomainName($subdomain, $domain_override = NULL) {
@@ -66,7 +66,8 @@
 				$signingDomain = substr($signingDomain, 0, strlen($signingDomain) - 1);
 			}
 
-			global $tldTree;
+			//global $tldTree;
+			require_once("effectiveTLDs.inc.php");
 
 			$signingDomainParts = split('\.', $signingDomain);
 
