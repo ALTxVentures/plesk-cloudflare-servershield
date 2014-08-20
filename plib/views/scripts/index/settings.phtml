@@ -1,0 +1,26 @@
+<?php
+
+    if(!$this->simple) {
+        echo $this->renderTabs($this->tabs);
+    }
+
+
+	switch($this->content) {
+        case "key_form":
+            echo '<div class="cfcontainer">';
+            echo Modules_servershield_CFPageBuilder::hostAPIKeyForm($this->key_saved, $this->host_key_message);
+            echo '</div>';
+        break;
+
+        case "activated":
+            echo '<div class="cfcontainer">';
+            echo Modules_servershield_CFPageBuilder::activatedView();
+            echo '</div>';
+        break;
+	}
+
+    echo '<script>
+				$$("head").first().insert(
+					new Element("link", {href: "/modules/servershield/servershield.css", rel: "stylesheet" })
+				);
+			</script>';

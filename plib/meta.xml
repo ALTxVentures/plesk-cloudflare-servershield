@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<module>
+  <id>servershield</id>
+  <name>ServerShield by CloudFlare </name>
+  <description>ServerShield by CloudFlare defends all your websites against online threats while making them load lightning fast.</description>
+  <version>1.5</version>
+  <release>1</release>
+  <url>https://www.cloudflare.com</url>
+  <plesk_min_version>12.0.17</plesk_min_version>
+</module>

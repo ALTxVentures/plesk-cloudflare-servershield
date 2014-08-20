@@ -1,0 +1,43 @@
+<?php
+
+    if(!$this->simple) {
+        echo $this->renderTabs($this->tabs);
+    }
+
+	echo '<div class="cfcontainer">';
+
+	switch($this->content) {
+		case "user_create":
+			echo Modules_servershield_CFPageBuilder::CFUserCreateForm($this->ucreate_message, $this->simple);
+		break;
+
+		case "zone_settings":
+			echo Modules_servershield_CFPageBuilder::zoneSettings($this->zone, $this->simple);
+		break;
+
+		case "zones":
+			echo Modules_servershield_CFPageBuilder::zonesPage($this->user_domains, $this->simple);
+		break;
+
+		case "server_dashboard":
+			echo Modules_servershield_CFPageBuilder::serverDashboardPage();
+		break;
+	}
+
+	echo '</div>
+			<script>
+				$$("head").first().insert(new Element("link", {href: "/modules/servershield/servershield.css", rel: "stylesheet" }));
+				$$("head").first().insert(new Element("link", {href: "/modules/servershield/growler.css", rel: "stylesheet" }));
+			</script>';
+	echo '<script src="//cdnjs.cloudflare.com/ajax/libs/scriptaculous/1.9.0/scriptaculous.js"></script>';
+    echo '<script src="/modules/servershield/growler.js"></script>';
+    echo '<script src="/modules/servershield/servershield.js"></script>';
+
+    if($this->content == "server_dashboard") {
+    	echo '<script src="/modules/servershield/bulkadd.js"></script>';
+    }
+
+	echo '<div id="overlay">
+     		<div id="currentstatus">
+     		</div>
+		</div>';
