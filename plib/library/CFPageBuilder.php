@@ -30,14 +30,16 @@
 	        $html .= '<div id="cfmessagearea"></div><br>';
 	        $html .= '<div id="cferrorarea"></div><br>';
 
-	        if(count($user_domains["valid_domains"]) > 0 ) {
+	        //if(count($user_domains["valid_domains"]) > 0 ) {
+	        if(count($user_domains["total_domains"]) > 0 ) {
 	            $html .= '<table id="cftable">';
 	            $html .= '<th>Wesbsite</th> <th>CloudFlare</th> <th></th> <th>StopTheHacker</th> <th></th> <th></th>';
 
 	            $cf_active_zone = array();
 	            $sth_active_zone = array();
 
-	            foreach ($user_domains["valid_domains"] as $d) {
+	            //foreach ($user_domains["valid_domains"] as $d) {
+	            foreach ($user_domains["total_domains"] as $d) {
 		            $cf_zname_setting_key = md5(Modules_servershield_PleskAPIHelper::getEffectiveId() . $d["name"]);
 		            $cf_sth_zone_key = md5(Modules_servershield_PleskAPIHelper::getEffectiveId() . $d["name"] . "STH");
 		            $current_zone_status = pm_Settings::get($cf_zname_setting_key);
